@@ -15,3 +15,17 @@ var b = a.reduce(function(arr, num) {
 }, []);
 
 console.log(b);
+
+//thought about another pop/push technique
+function massageall(massagearray, popit) {
+    var val = massagearray.pop(); 
+    
+    popit(val); 
+	
+    if (massagearray.length > 0) massageall(massagearray, popit); 
+}
+ 
+var poppedarray = [];
+massageall(a, function(even) { if (even % 2 === 0) poppedarray.push(even); });
+
+console.log(poppedarray);
